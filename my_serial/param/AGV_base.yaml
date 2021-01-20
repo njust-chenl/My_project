@@ -1,0 +1,15 @@
+
+#AGV底盘信息
+Wheel_Diameter : 0.147
+Wheel_Track: 0.51
+Reduction_Ratio: 30
+Encoder_Accuracy: 10000
+Velocity_Factor: 240
+
+#串口参数设置
+serial_dev: /dev/ttyS0
+Baud_Rat: 115200
+
+#超声波距离判断
+UNDM_Dis: 40
+UNDM_Correct: true

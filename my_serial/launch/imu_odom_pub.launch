@@ -1,0 +1,8 @@
+<launch>
+  
+  <node name="odom_pub" pkg="my_serial" type="odom_pub" output="screen" />
+
+  <node name="imu" pkg="my_serial" type="imu_pub"  output="screen"/>
+  <include file="$(find lslidar_c16_decoder)/launch/lslidar_c16.launch" />
+
+</launch>
