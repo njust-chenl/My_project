@@ -1,0 +1,42 @@
+max_obstacle_height: 0.40  # assume something like an arm is mounted on top of the robot
+
+#设置底盘尺寸
+robot_radius: 0.35
+#footprint: [[0.325, 0.225], [0.325, -0.225], [-0.325, -0.225], [-0.325, 0.225]]  # if the robot is not circular
+#地图类型：体素（voxel） 代价地图（costmap）
+map_type: voxel
+#障碍物层参数
+obstacle_layer:
+  enabled:              true  
+  max_obstacle_height:  0.8  #传感器读数最大有效高度
+  origin_z:             0.0   #z原点
+  z_resolution:         0.2   #z分辨率
+  z_voxels:             2     #每个垂直列中的体素数
+  unknown_threshold:    15    
+  mark_threshold:       0
+  combination_method:   1     #0：覆盖   1：最大值   99：不变
+  track_unknown_space:  true    #true：lethal free flase:lethal free unknown
+  obstacle_range: 1.0   #1.0        #将障碍物插入代价地图的最大范围
+  raytrace_range: 8.0           #从地图中扫描出障碍物的最大范围
+  origin_z: 0.0                 
+  z_resolution: 0.2
+  z_voxels: 2
+  publish_voxel_map: true      #是否发布底层体素栅格地图，用于可视化
+  observation_sources:  PointCloud   #观察源
+    PointCloud:
+       data_type: PointCloud2
+       topic: /lslidar_point_cloud
+       marking:  true #flase       #启用标记障碍物功能
+       clearing: true   
+       min_obstacle_height: 0.0  #传感器最低有效高度
+       max_obstacle_height: 0.48  #传感器最大有效高度  
+#膨胀层参数
+inflation_layer:
+  enabled:              true
+  cost_scaling_factor:  2.0  #膨胀期间应用于代价值的尺度因子
+  inflation_radius:     0.32 #init 0.45#代价地图膨胀半径
+#静态地图层
+static_layer:
+  enabled:              true
+  
+

@@ -1,0 +1,21 @@
+
+GlobalPlanner:                                  # Also see: http://wiki.ros.org/global_planner
+  old_navfn_behavior: false                     # Exactly mirror behavior of navfn, use defaults for other boolean parameters, default false
+  use_quadratic: true                  # Use the quadratic approximation of the potential. Otherwise, use a simpler calculation,default true
+  use_dijkstra: true              # Use dijkstra's algorithm. Otherwise, A*, default true
+  use_grid_path: false # cocos      # Create a path that follows the grid boundaries. Otherwise, use a gradient descent method, defaultfalse
+  
+  allow_unknown: true       #未知环境下路径规划
+
+  planner_window_x: 0.0     
+  planner_window_y: 0.0  
+
+  default_tolerance: 0.1    #目标点存在障碍物时，寻找附近点作为目标点
+  
+  publish_scale: 100                            # 讲发布的potential的点乘以scale以计算探测的点
+  planner_costmap_publish_frequency: 0.0        #规划器代价图发布频率
+  
+  lethal_cost: 253                              # 致命代价值
+  neutral_cost: 66                              # 中等代价值
+  cost_factor: 0.55                            # 代价地图与每个代价值想成的因子
+  publish_potential: true                       # 是否发布costmap的势函数

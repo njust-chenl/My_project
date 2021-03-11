@@ -1,0 +1,80 @@
+# Move base node parameters. For full documentation of the parameters in this file, please see
+#
+#  http://www.ros.org/wiki/move_base
+#
+shutdown_costmaps: false
+
+#controller_frequency: 5.0
+#controller_frequency:  1.0 #1.0 cocos 
+controller_frequency:  10.0
+controller_patience: 10.0
+
+
+#planner_frequency: 1.0
+planner_frequency: 1.0
+planner_patience: 10.0
+
+oscillation_timeout: 10.0 #10.0 cocos 
+oscillation_distance: 0.3  #0.2  cocos
+
+base_local_planner: "dwa_local_planner/DWAPlannerROS"
+#base_local_planner: "trajectory rollout"
+
+base_global_planner: "global_planner/GlobalPlanner"
+#base_global_planner: "carrot_planner/CarrotPlanner"
+#base_global_planner: "navfn/NavfnROS"
+
+#We plan to integrate recovery behaviors for turtlebot but currently those belong to gopher and still have to be adapted.
+## recovery behaviors; we avoid spinning, but we need a fall-back replanning
+recovery_behavior_enabled:   true # cocos
+
+recovery_behaviors:
+  - name: 'con_reset1'
+    type: 'clear_costmap_recovery/ClearCostmapRecovery'
+
+  - name: 'agg_reset1'
+    type: 'clear_costmap_recovery/ClearCostmapRecovery'
+
+  - name: 'recovery_rot1'
+    type: 'rotate_recovery/RotateRecovery'
+
+  - name: 'recovery_move1'
+    type: 'move_slow_and_clear/MoveSlowAndClear'
+
+  - name: 'con_reset2'
+    type: 'clear_costmap_recovery/ClearCostmapRecovery'
+
+  - name: 'agg_reset2'
+    type: 'clear_costmap_recovery/ClearCostmapRecovery'
+
+  - name: 'clearing_rot2'
+    type: 'rotate_recovery/RotateRecovery'
+
+
+con_reset1:
+  reset_distance: 0.5
+agg_reset1:
+  reset_distance: 0.0
+recovery_rot1:
+  sim_granularity: 0.017
+  yaw_goal_tolerance: 0.05
+  acc_lim_th: 1.1
+  max_rotational_vel: 1.0
+  min_in_place_rotational_vel: 0.3
+recovery_move1:
+  clearing_distance: 0
+  limited_trans_speed: 0.15
+  limited_rot_speed: 0.20
+  limited_distance: 0.1
+
+
+con_reset2:
+  reset_distance: 0.5
+agg_reset2:
+  reset_distance: 0.0
+recovery_rot2:
+  sim_granularity: 0.017
+  yaw_goal_tolerance: 0.05
+  acc_lim_th: 1.1
+  max_rotational_vel: 3.0
+  min_in_place_rotational_vel: 1.0

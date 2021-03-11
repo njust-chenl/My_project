@@ -1,0 +1,7 @@
+<launch>
+ <include file="$(find my_agv)/launch/agv_base.launch"/>
+<include file="$(find my_map)/include/gmapping.launch.xml"/>
+  <include file="$(find lslidar_c16_decoder)/launch/lslidar_c16.launch"/>
+  <include file="$(find pointcloud_to_laserscan)/launch/xiaoqiang_rslidar.launch"/>
+
+</launch>

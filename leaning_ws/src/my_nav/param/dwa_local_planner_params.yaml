@@ -1,0 +1,52 @@
+DWAPlannerROS:
+
+#机器人配置参数
+#X方向线速度，负值表示可后退
+  max_vel_x: 0.3
+  min_vel_x: 0.0
+  max_vel_y: 0.0
+  min_vel_y: 0.0
+#平移速度绝对值，略小于线速度
+  max_trans_vel: 0.2
+  min_trans_vel: 0.1
+  trans_stopped_vel: 0.1  #低于该速度，认为机器人已停止
+#旋转速度绝对值
+  max_rot_vel:  0.15
+  min_rot_vel: 0.15
+  rot_stopped_vel: 0.1
+  
+  acc_lim_x:  1.0
+  acc_lim_y: 0
+  acc_lim_theta: 1.0
+
+#目标公差参数
+  yaw_goal_tolerance: 0.1
+  xy_goal_tolerance: 0.2
+  # latch_xy_goal_tolerance: false  #到达目标后是否自旋。
+
+#前向模拟参数
+  sim_time: 2.0      # 1.7
+#采样点数
+  vx_samples: 5
+  vy_samples: 1
+  vtheta_samples: 20
+
+# Trajectory Scoring Parameters
+  path_distance_bias: 32.0      #全局路径规划权重
+  goal_distance_bias: 20.0      #局部路径规划权重
+  occdist_scale: 0.02         #控制器躲避障碍物程度
+  forward_point_distance: 0.325 #额外放置一个计分点的距离
+  stop_time_buffer: 0.2         #为防止碰撞，机器人提前停止的时间
+  scaling_speed: 0.25           #开始缩放机器人足迹时的速度绝对值
+  max_scaling_factor: 0.2       #最大缩放因子
+
+# 震荡预防参数
+  oscillation_reset_dist:    0.2  #机器人运动多远距离才会重置震荡标记
+
+# 调试参数
+  publish_traj_pc : true  #规划路径可视化
+  publish_cost_grid_pc: true  #代价值可视化
+  global_frame_id: odom
+
+# Differential-drive robot configuration - necessary?
+  holonomic_robot: false

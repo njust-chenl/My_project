@@ -1,0 +1,4 @@
+<launch> 
+    <include file="$(find my_map)/include/gmapping.launch.xml"/>
+     <include file="$(find my_map)/launch/hokuyo.launch"/>
+</launch>

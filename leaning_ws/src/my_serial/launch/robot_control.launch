@@ -1,0 +1,7 @@
+<launch>
+    <node  respawn="false" pkg="my_serial" type="robot_control" name="robot_control" output="screen">
+       <rosparam file="$(find my_serial)/param/AGV_base.yaml"/>   
+    </node>
+   <node  respawn="true" pkg="my_serial" type="arm_control" name="arm_control" output="screen">
+    </node>
+</launch>

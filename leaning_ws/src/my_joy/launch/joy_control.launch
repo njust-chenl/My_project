@@ -1,0 +1,17 @@
+<launch>
+
+
+<arg name="linear" default="0.03"/>
+<arg name="angular" default="0.03"/>
+<arg name="js_dev" default="/dev/input/js0"/>
+<arg name="deadzone" default="0.1"/>
+    <node  pkg="joy" type="joy_node" name="joystick" output="screen">
+        <param name="dev" value="$(arg js_dev)" type="string"/>
+        <param name="deadzone" value="$(arg deadzone)" />
+    </node>
+    <node pkg="my_joy" type="joy_control" name="joy_control" output="screen">
+        <param name="vel_linear" type="double" value="$(arg linear)"/>
+        <param name="vel_angular" type="double" value="$(arg angular)"/>
+    </node>
+    
+</launch>

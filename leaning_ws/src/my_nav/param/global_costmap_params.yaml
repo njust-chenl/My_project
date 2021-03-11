@@ -1,0 +1,14 @@
+global_costmap:
+   global_frame: /map
+   robot_base_frame: /base_footprint
+   update_frequency: 5.0      #全局地图信息更新频率
+   publish_frequency: 2.0     #发布显示频率
+   static_map: true           #是否需要map_serve
+   rolling_window: false
+   transform_tolerance: 0.5   #tf变换最大延时
+   #插件定义
+   plugins:
+     - {name: static_layer,            type: "costmap_2d::StaticLayer"}
+     - {name: obstacle_layer,          type: "costmap_2d::VoxelLayer"}
+     - {name: inflation_layer,         type: "costmap_2d::InflationLayer"}
+
