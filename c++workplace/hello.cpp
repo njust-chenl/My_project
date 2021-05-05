@@ -18,3 +18,4 @@ int checkCPUendian()
   printf("%d\n",c.a);
   return (c.b == 1); 
 }
+111
