@@ -1,4 +1,6 @@
 #include "iostream"
+#include <memory.h>
+#include <string.h>
 #include <vector>
 //using namespace std;
 int main(int argc, char const *argv[])
@@ -16,8 +18,12 @@ int main(int argc, char const *argv[])
     {
         std::cout << i<<std::endl;
     }
-    
-
+    char* str=NULL;
+    str=(char*)malloc(16);
+    std::cout<< sizeof(str)<<std::endl;
+    memset(str,'0',16);
+    strcpy(str,"12345678");
+    std::cout<<str<<std::endl;
     return 0;
 }
 

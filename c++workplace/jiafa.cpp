@@ -2,7 +2,7 @@
 using namespace std ;
 int main()
 {
-    cout << "ÇëÊäÈëÊý¾Ý£º" ;
+
     float  sum =0.0 ;
     float  i ;
     while (cin >> i)
